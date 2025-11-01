@@ -27,8 +27,11 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F8F4F0]" style={{ fontFamily: "'Lato', 'Open Sans', sans-serif" }}>
       {/* Section 1: Home - Bride & Groom Introduction */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 py-16 overflow-hidden bg-cover bg-center bg-no-repeat" style={{
+      <section className="relative min-h-screen flex items-center justify-center px-4 py-16 overflow-hidden" style={{
         backgroundImage: `url("/cardnew1.jpg")`,
+        backgroundSize: 'cover',
+        backgroundPosition: '50% 50%',
+        backgroundRepeat: 'no-repeat'
       }}>
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 bg-black/40"></div>
