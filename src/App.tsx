@@ -18,9 +18,9 @@ export default function App() {
 
   // Using local image files (place these in the project root or preferably in `public/`)
   const engagementPhotos = [
-    '/Cardimg1.png',
+    '/card1new.png',
     '/Cardimg2.png',
-    '/Cardimg3.png',
+    '/cardnew3.png',
     '/Cardimg4.png',
   ];
 
@@ -92,7 +92,7 @@ export default function App() {
           className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#4B3B33] opacity-60 hover:opacity-100 transition-opacity cursor-pointer group"
           aria-label="Scroll to wedding details"
         >
-          <span className="text-xs tracking-wider">SCROLL</span>
+          
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
@@ -148,7 +148,7 @@ export default function App() {
                   </div>
                   <div className="text-[#8B7B73] tracking-wide" style={{ fontSize: '0.875rem' }}>TIME</div>
                   <div className="text-[#4B3B33]" style={{ fontSize: '1.25rem', fontFamily: "'Playfair Display', 'Cormorant Garamond', serif" }}>
-                    11:00 AM onwards
+                    Between 12:05 & 12:30 PM 
                   </div>
                 </div>
               </div>
@@ -240,7 +240,7 @@ export default function App() {
             className="space-y-8"
           >
             <h3 className="text-center text-[#4B3B33]" style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', serif", fontSize: '1.875rem' }}>
-              Engagement Memories
+              Gallery
             </h3>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
