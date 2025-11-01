@@ -178,7 +178,7 @@ export default function App() {
             {/* Action Buttons and QR Code */}
             <div className="flex flex-col md:flex-row items-center justify-center gap-6">
               <Button 
-                onClick={() => window.open('https://maps.google.com/?q=Grand+Palace+Convention+Center+MG+Road+Bangalore', '_blank')}
+                onClick={() => window.open('https://maps.app.goo.gl/dxffgSQuP4AEacFo8', '_blank')}
                 className="bg-[#4B3B33] hover:bg-[#3B2B23] text-white px-8 py-6 rounded-full shadow-md transition-all hover:shadow-lg"
               >
                 <MapPin className="w-4 h-4 mr-2" />
