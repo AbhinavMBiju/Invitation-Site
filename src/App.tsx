@@ -20,7 +20,7 @@ export default function App() {
   const engagementPhotos = [
     '/card1new.jpg',
     '/Cardimg2.png',
-    '/cardnew3.jpg',
+    '/card3new.jpg',
     '/Cardimg4.png',
   ];
 
