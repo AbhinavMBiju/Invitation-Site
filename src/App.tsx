@@ -18,7 +18,7 @@ export default function App() {
 
   // Using local image files (place these in the project root or preferably in `public/`)
   const engagementPhotos = [
-    '/card1new.jpg',
+    '/cardnew1.jpg',
     '/Cardimg2.png',
     '/card3new.jpg',
     '/Cardimg4.png',
