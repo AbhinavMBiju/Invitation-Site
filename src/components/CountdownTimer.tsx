@@ -9,7 +9,7 @@ interface TimeLeft {
 }
 
 export function CountdownTimer() {
-  const weddingDate = new Date('2025-12-28T11:00:00').getTime();
+  const weddingDate = new Date('2025-12-28T12:00:00').getTime();
   
   const calculateTimeLeft = (): TimeLeft => {
     const now = new Date().getTime();
