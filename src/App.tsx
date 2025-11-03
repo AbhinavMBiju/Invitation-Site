@@ -157,7 +157,7 @@ export default function App() {
             className="text-center text-[#4B3B33]"
             style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', serif", fontSize: '2.5rem', lineHeight: '1.3' }}
           >
-            Wedding Details
+            Date & Time
           </motion.h2>
 
           {/* Date & Time Card */}
