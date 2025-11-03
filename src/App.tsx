@@ -189,7 +189,7 @@ export default function App() {
                       <path strokeWidth="2" strokeLinecap="round" d="M12 6v6l4 2"/>
                     </svg>
                   </div>
-                  <div className="text-[#8B7B73] tracking-wide" style={{ fontSize: '0.875rem' }}>TIME</div>
+                  <div className="text-[#8B7B73] tracking-wide" style={{ fontSize: '0.875rem' }}>MUHURTHAM</div>
                   <div className="text-[#4B3B33]" style={{ fontSize: '1.25rem', fontFamily: "'Playfair Display', 'Cormorant Garamond', serif" }}>
                     Between 12:05 & 12:30 PM 
                   </div>
