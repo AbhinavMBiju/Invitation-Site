@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Calendar, ChevronDown } from 'lucide-react';
 import { Button } from './components/ui/button';
@@ -16,6 +16,50 @@ export default function App() {
     setIsSection2Visible(true);
   };
 
+  // Refs for background parallax
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const bgRef = useRef<HTMLDivElement | null>(null);
+
+  // Subtle parallax / motion for the background while scrolling
+  useEffect(() => {
+    let ticking = false;
+
+    const update = () => {
+      ticking = false;
+      if (!sectionRef.current || !bgRef.current) return;
+      const el = sectionRef.current;
+      const sectionTop = el.offsetTop;
+      const sectionHeight = el.offsetHeight || window.innerHeight;
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      // progress 0..1 as the user scrolls past the section top
+      const raw = (scrollY - sectionTop) / sectionHeight;
+      const progress = Math.min(Math.max(raw, 0), 1);
+
+      const translate = progress * 30; // move up to 30px
+      const scale = 1 + progress * 0.02; // slight scale up to 1.02
+
+      bgRef.current.style.transform = `translateY(${translate}px) scale(${scale})`;
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    // initial update
+    update();
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
   // Using local image files (place these in the project root or preferably in `public/`)
   const engagementPhotos = [
     '/cardnew1.jpg',
@@ -27,13 +71,23 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F8F4F0]" style={{ fontFamily: "'Lato', 'Open Sans', sans-serif" }}>
       {/* Section 1: Home - Bride & Groom Introduction */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 py-16 overflow-hidden" style={{
+      <section ref={sectionRef} className="relative min-h-screen flex items-center justify-center px-4 py-16 overflow-hidden" style={{
         backgroundImage: `url("/cardbg.jpg")`,
         backgroundSize: 'cover',
         backgroundPosition: '50% 50%',
         backgroundRepeat: 'no-repeat',
         color: '#F9F5F1'
       }}>
+        {/* Background layer (will animate with scroll) */}
+        <div ref={bgRef} className="absolute inset-0" style={{
+          backgroundImage: `url("/cardbg.jpg")`,
+          backgroundSize: 'cover',
+          backgroundPosition: '50% 50%',
+          backgroundRepeat: 'no-repeat',
+          willChange: 'transform',
+          transform: 'translateY(0px) scale(1)'
+        }} />
+
         {/* Slightly lighter overlay so ivory text reads bright */}
         <div className="absolute inset-0 bg-black/30"></div>
         
