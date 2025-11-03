@@ -31,7 +31,8 @@ export default function App() {
         backgroundImage: `url("/cardbg.jpg")`,
         backgroundSize: 'cover',
         backgroundPosition: '50% 50%',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        color: '#F9F5F1'
       }}>
         {/* Slightly lighter overlay so ivory text reads bright */}
         <div className="absolute inset-0 bg-black/30"></div>
