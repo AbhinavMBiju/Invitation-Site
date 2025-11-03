@@ -20,7 +20,7 @@ export default function App() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const bgRef = useRef<HTMLDivElement | null>(null);
 
-  // Subtle parallax / motion for the background while scrolling
+  // Enhanced parallax / motion for the background while scrolling
   useEffect(() => {
     let ticking = false;
 
@@ -31,14 +31,17 @@ export default function App() {
       const sectionTop = el.offsetTop;
       const sectionHeight = el.offsetHeight || window.innerHeight;
       const scrollY = window.scrollY || window.pageYOffset;
+      const vh = window.innerHeight;
 
-      // progress 0..1 as the user scrolls past the section top
-      const raw = (scrollY - sectionTop) / sectionHeight;
+      // progress 0..1 based on how the section sits relative to the viewport
+      const raw = (scrollY - sectionTop + vh / 2) / (sectionHeight + vh);
       const progress = Math.min(Math.max(raw, 0), 1);
 
-      const translate = progress * 30; // move up to 30px
-      const scale = 1 + progress * 0.02; // slight scale up to 1.02
+      // stronger, noticeable motion: translate up to -80px, scale up to 1.06
+      const translate = -Math.round(progress * 80);
+      const scale = 1 + progress * 0.06;
 
+      // apply a smooth transform
       bgRef.current.style.transform = `translateY(${translate}px) scale(${scale})`;
     };
 
