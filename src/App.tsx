@@ -33,8 +33,8 @@ export default function App() {
         backgroundPosition: '50% 50%',
         backgroundRepeat: 'no-repeat'
       }}>
-        {/* Dark overlay for text visibility (adjust opacity if needed) */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        {/* Slightly lighter overlay so ivory text reads bright */}
+        <div className="absolute inset-0 bg-black/30"></div>
         
         {/* Floral decorations */}
         <FloralDecoration position="top-right" />
@@ -45,7 +45,7 @@ export default function App() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 text-center max-w-2xl"
+          className="relative z-10 text-center max-w-2xl text-[#F9F5F1]"
         >
           <div className="space-y-8">
             {/* Header */}
@@ -66,10 +66,10 @@ export default function App() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="space-y-6"
             >
-              <div className="text-[#F9F5F1]" style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', serif" }}>
-                <div style={{ fontSize: '3.5rem', lineHeight: '1.2' }}>Aparna</div>
-                <div className="w-32 h-px bg-[#4B3B33] mx-auto my-6 opacity-40"></div>
-                <div style={{ fontSize: '3.5rem', lineHeight: '1.2' }}>Ashith</div>
+              <div style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', serif" }}>
+                <div style={{ fontSize: '3.5rem', lineHeight: '1.2', color: '#F9F5F1' }}>Aparna</div>
+                <div className="w-32 h-px bg-[#F9F5F1] mx-auto my-6 opacity-40"></div>
+                <div style={{ fontSize: '3.5rem', lineHeight: '1.2', color: '#F9F5F1' }}>Ashith</div>
               </div>
             </motion.div>
             
@@ -92,7 +92,7 @@ export default function App() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#4B3B33] opacity-60 hover:opacity-100 transition-opacity cursor-pointer group"
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[#F9F5F1] opacity-90 hover:opacity-100 transition-opacity cursor-pointer group"
           aria-label="Scroll to wedding details"
         >
           
