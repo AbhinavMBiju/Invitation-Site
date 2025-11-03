@@ -53,7 +53,7 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="tracking-[0.3em] text-[#4B3B33] opacity-80"
+              className="tracking-[0.3em] text-[#F9F5F1] opacity-90"
               style={{ fontSize: '0.875rem', fontWeight: '400' }}
             >
               WE'RE GETTING MARRIED
@@ -66,7 +66,7 @@ export default function App() {
               transition={{ delay: 0.5, duration: 0.8 }}
               className="space-y-6"
             >
-              <div className="text-[#4B3B33]" style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', serif" }}>
+              <div className="text-[#F9F5F1]" style={{ fontFamily: "'Playfair Display', 'Cormorant Garamond', serif" }}>
                 <div style={{ fontSize: '3.5rem', lineHeight: '1.2' }}>Aparna</div>
                 <div className="w-32 h-px bg-[#4B3B33] mx-auto my-6 opacity-40"></div>
                 <div style={{ fontSize: '3.5rem', lineHeight: '1.2' }}>Ashith</div>
@@ -78,7 +78,7 @@ export default function App() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="text-[#6B5B53] max-w-md mx-auto px-4"
+              className="text-[#F9F5F1] max-w-md mx-auto px-4"
               style={{ fontSize: '1rem', lineHeight: '1.7' }}
             >
               Together with our families, we invite you to celebrate our union.
