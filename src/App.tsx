@@ -20,47 +20,29 @@ export default function App() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const bgRef = useRef<HTMLDivElement | null>(null);
 
-  // Enhanced parallax / motion for the background while scrolling
+  // Gentle Ken Burns effect (automatic, avoids scroll duplicates)
   useEffect(() => {
-    let ticking = false;
+    let rafId: number;
+    let start: number | null = null;
 
-    const update = () => {
-      ticking = false;
-      if (!sectionRef.current || !bgRef.current) return;
-      const el = sectionRef.current;
-      const sectionTop = el.offsetTop;
-      const sectionHeight = el.offsetHeight || window.innerHeight;
-      const scrollY = window.scrollY || window.pageYOffset;
-      const vh = window.innerHeight;
+    const loop = (t: number) => {
+      if (!bgRef.current) return;
+      if (start === null) start = t;
+      const elapsed = t - start;
 
-      // progress 0..1 based on how the section sits relative to the viewport
-      const raw = (scrollY - sectionTop + vh / 2) / (sectionHeight + vh);
-      const progress = Math.min(Math.max(raw, 0), 1);
+      // slow oscillation: period ~= 8s
+      const progress = (Math.sin(elapsed / 4000) + 1) / 2; // 0..1
 
-      // stronger, noticeable motion: translate up to -80px, scale up to 1.06
-      const translate = -Math.round(progress * 80);
-      const scale = 1 + progress * 0.06;
+      // translate up to -12px and scale up to 1.04
+      const translate = -12 * progress;
+      const scale = 1 + 0.04 * progress;
 
-      // apply a smooth transform
       bgRef.current.style.transform = `translateY(${translate}px) scale(${scale})`;
+      rafId = requestAnimationFrame(loop);
     };
 
-    const onScroll = () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(update);
-      }
-    };
-
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    // initial update
-    update();
-
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-    };
+    rafId = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   // Using local image files (place these in the project root or preferably in `public/`)
