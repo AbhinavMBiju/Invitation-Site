@@ -1,7 +1,7 @@
 
   # Elegant Wedding Invitation Website
 
-  This is a code bundle for Elegant Wedding Invitation Website. The original project is available at https://www.figma.com/design/uJUZlQ9ykLSC19kIjAhVnP/Elegant-Wedding-Invitation-Website.
+  This is a code bundle for Elegant Wedding Invitation Website. The original project is available at https://aparna-ashith-wedding.vercel.app/
 
   ## Running the code
 
